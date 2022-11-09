@@ -6,17 +6,24 @@ import { useState } from 'react';
 import { Divider, Row } from 'antd';
 import FoodBox from './components/FoodBox';
 import AddFoodForm from './components/AddFoodForm';
+import Search from './components/Search';
 
 function App() {
   const [data, setData] = useState(foods);
+  const [hide, setHide] = useState([]);
 
   return (
     <div className="App">
       <AddFoodForm data={data} setData={setData} />
+      <Search data={data} setHide={setHide}></Search>
       <Divider>Food List</Divider>
       <Row gutter={16}>
-        {data.map((food) => (
-          <FoodBox key={food.name} food={food} />
+        {data.map((food, index) => (
+          <FoodBox
+            key={food.name}
+            food={food}
+            style={hide.includes(index) ? { display: 'none' } : {}}
+          />
         ))}
       </Row>
     </div>
