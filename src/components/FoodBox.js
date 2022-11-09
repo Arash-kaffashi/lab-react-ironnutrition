@@ -7,7 +7,7 @@ import { Card, Col, Button } from 'antd';
 // Iteration 2
 function FoodBox({ food: { name, image: src, calories, servings } }) {
   return (
-    <Col>
+    <Col span={4}>
       <Card title={name} style={{ width: 230, height: 300, margin: 10 }}>
         <img src={src} height={60} alt="food" />
         <p>Calories: {calories}</p>

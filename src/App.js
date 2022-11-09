@@ -3,7 +3,7 @@ import foods from './foods.json';
 
 import { useState } from 'react';
 
-import { Divider } from 'antd';
+import { Divider, Row } from 'antd';
 import FoodBox from './components/FoodBox';
 
 function App() {
@@ -12,14 +12,11 @@ function App() {
   return (
     <div className="App">
       <Divider>Food List</Divider>
-      <FoodBox
-        food={{
-          name: 'Orange',
-          calories: 85,
-          image: 'https://i.imgur.com/abKGOcv.jpg',
-          servings: 1,
-        }}
-      />
+      <Row gutter={16}>
+        {data.map((food) => (
+          <FoodBox food={food} />
+        ))}
+      </Row>
     </div>
   );
 }
