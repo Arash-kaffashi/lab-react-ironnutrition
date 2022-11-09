@@ -1,19 +1,25 @@
 import './App.css';
 import foods from './foods.json';
+
+import { useState } from 'react';
+
 import { Divider } from 'antd';
+import FoodBox from './components/FoodBox';
 
 function App() {
+  const [data, setData] = useState(foods);
+
   return (
     <div className="App">
       <Divider>Food List</Divider>
-      {foods.map(({ name, image }) => {
-        return (
-          <div>
-            <h3>{name}</h3>
-            <img src={image} height={'60px'} />
-          </div>
-        );
-      })}
+      <FoodBox
+        food={{
+          name: 'Orange',
+          calories: 85,
+          image: 'https://i.imgur.com/abKGOcv.jpg',
+          servings: 1,
+        }}
+      />
     </div>
   );
 }
