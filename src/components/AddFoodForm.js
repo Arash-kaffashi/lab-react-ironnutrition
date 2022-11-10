@@ -1,9 +1,14 @@
 import { Divider, Form, Input, InputNumber, Row, Col, Button } from 'antd';
+import { useState } from 'react';
 
 export default function AddFoodForm({ setData, data }) {
+  let [hide, setHide] = useState(false);
   const onFinish = (values) => {
     setData([...data, values]);
   };
+  function handleButton() {
+    setHide(!hide);
+  }
 
   return (
     <Row>
@@ -14,6 +19,7 @@ export default function AddFoodForm({ setData, data }) {
           initialValues={{ remember: true }}
           onFinish={onFinish}
           autoComplete="off"
+          style={hide ? { display: 'none' } : {}}
         >
           <Divider>Add Food Entry</Divider>
           <Form.Item
@@ -53,6 +59,9 @@ export default function AddFoodForm({ setData, data }) {
             </Button>
           </Form.Item>
         </Form>
+        <Button type="default" onClick={handleButton}>
+          {hide ? 'Add New Food' : 'Hide Form'}
+        </Button>
       </Col>
     </Row>
   );
