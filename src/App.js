@@ -17,7 +17,7 @@ function App() {
       <AddFoodForm data={data} setData={setData} />
       <Search data={data} setHide={setHide}></Search>
       <Divider>Food List</Divider>
-      <Row gutter={16}>
+      <Row style={{ width: '100%', justifyContent: 'space-even' }}>
         {data.length > 0 ? (
           data.map((food, index) => (
             <FoodBox

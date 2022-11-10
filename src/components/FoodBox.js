@@ -8,10 +8,10 @@ import { Card, Col, Button } from 'antd';
 function FoodBox({ food, style, data, setData }) {
   let { name, image: src, calories, servings } = food;
   function handleDelete() {
-    setData( data.filter( dF => dF !== food) )
+    setData(data.filter((dF) => dF !== food));
   }
   return (
-    <Col span={4} style={style}>
+    <Col style={style}>
       <Card title={name} style={{ width: 230, height: 300, margin: 10 }}>
         <img src={src} height={60} alt="food" />
         <p>Calories: {calories}</p>
@@ -19,7 +19,10 @@ function FoodBox({ food, style, data, setData }) {
         <p>
           <b>Total Calories: {calories * servings}</b> kcal
         </p>
-        <Button type="primary" onClick={handleDelete}> Delete </Button>
+        <Button type="primary" onClick={handleDelete}>
+          {' '}
+          Delete{' '}
+        </Button>
       </Card>
     </Col>
   );
