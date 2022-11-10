@@ -23,6 +23,8 @@ function App() {
             key={food.name}
             food={food}
             style={hide.includes(index) ? { display: 'none' } : {}}
+            data={data}
+            setData={setData}
           />
         ))}
       </Row>
